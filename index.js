@@ -15,12 +15,21 @@ class Neighborhood{
     store.neighborhoods.push(this);
   }
   
-  deliveries(){
-    return store.deliveries.filter((deliveries) => deliveries.neighborhoodId === this.id);
+deliveries(){
+    return store.deliveries.filter((delivery) => delivery.neighborhoodId === this.id );
   }
-   customers(){
-   return store.customers.filter((customers) => customers.neighborhoodId === this.id);
-   }
+
+  customers(){
+    return store.customers.filter((customer) => customer.neighborhoodId === this.id );
+  }
+
+  meals(){
+    return store.meals.filter(
+        function(meal) {
+            return meal.deliveries().filter(function(delivery){ return delivery.neighborhoodId === this.id; }.bind(this) );
+        }.bind(this)
+    );
+  }
 }
 
 class Delivery{
