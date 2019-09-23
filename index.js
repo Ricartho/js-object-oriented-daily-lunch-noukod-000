@@ -71,7 +71,7 @@ class Meal{
   }
 
   customers(){
-    return store.customers.filter((customer) => customer.deliveries().filter(delivery => delivery.mealId === this.id) );
+    return store.customers.filter(customer => customer.deliveries().filter(delivery => delivery.mealId === this.id) );
   }
 }
 
