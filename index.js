@@ -40,7 +40,7 @@ class Customer{
   }
 
   deliveries(){
-    return store.deliveries.filter((delivery) => delivery.customerId === this.id && delivery.neighborhoodId === this.neighborhoodId );
+    return store.deliveries.filter(delivery => delivery.customerId === this.id && delivery.neighborhoodId === this.neighborhoodId );
   }
 
   totalSpent(){
